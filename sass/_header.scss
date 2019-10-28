@@ -1,0 +1,79 @@
+.header {
+    grid-column:  full-start / col-end 6;
+  
+    display: grid;
+    //De esta manera no funciona bien con el responsive so mejor la de abajo
+    //grid-template-rows:1fr min-content minmax(6rem,min-content) min-content 10rem 10rem;;
+    grid-template-rows:1fr min-content minmax(6rem,min-content) min-content 10rem 10rem;
+    grid-row-gap: 1.5rem;
+    grid-template-columns:minmax(min-content,max-content) ;
+    justify-content: center;
+    // padding-left: 8rem;
+   padding-top: 4rem;
+   
+
+  //Para que funcione el lienear gradient con url hay que declarar back-size and back-position
+    background-image:  linear-gradient(to right bottom, rgba($color-secondary, .93), rgba($color-secondary, .93)), url(../img/hero.jpeg);
+    background-size: cover;
+    background-position: center;
+    &__logo {
+        height: 3rem;
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+
+    &__seenon-text{
+     display: grid;
+
+     font-size: 1.6rem;
+     color: $color-grey-dark-1;
+     grid-template-columns: 1fr max-content 1fr;
+     grid-column-gap: 1.5rem;
+     align-items: center;
+    
+
+     &::before,
+     &::after {
+        content: '';
+        height: 1px;
+        display: block;
+        background-color: currentColor;
+        
+     }
+    
+    }
+
+    &__seenon-logos{
+        display: grid;
+         //grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+         grid-template-columns: repeat(4, 1fr);
+         grid-column-gap: 3rem;
+         justify-items: center;
+         align-items: center;
+      
+         
+        
+        img {
+            max-height: 2.5rem;
+            max-width: 100%;
+            justify-self: center;
+            filter: brightness(70%);
+        }
+    }
+
+    &__btn {
+        justify-self: start;
+        
+    }
+
+    @media only screen and (max-width:$bp-medio) {
+        grid-column:  full-start / -1;
+       
+        }
+    @media only screen and (max-width:$bp-small) {
+      
+       
+        }
+
+}
+
